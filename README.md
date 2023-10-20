@@ -22,6 +22,7 @@ When the phase 1 is unable to fill any new tiles than the algoritm moves to the 
 In the second phase the algorithm takes the fitness table and goes through the empty tiles.
 
 For every of those tiles it creates a copy of the current Sudoku state and fills the tile with one of the possible digits from the fitness table.
+
 Then, the algorithm is trying to recursively solve the new Sudoku state and moves to the phase 1.
 
 The recursion stops when the entire Sudoku is solved.
