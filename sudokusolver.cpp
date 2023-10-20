@@ -12,7 +12,7 @@ void print_board(vector<vector<int>> &board, bool mode)
 {
     if (!mode)
     {
-		// plain output
+	// plain output
         for (int i = 0; i < 9; ++i)
         {
             for (int j = 0; j < 9; ++j)
@@ -23,7 +23,7 @@ void print_board(vector<vector<int>> &board, bool mode)
     }
     else
     {
-		// "ascii decorated" output
+	// "ascii decorated" output
         for (int i = 0; i < 9; ++i)
         {
             if (i % 3 == 0)
