@@ -7,23 +7,23 @@ My program uses a 2-phase recursive search in order to find one of possibly many
 
 ## Phase 1
 
-First phase of the algorithm tries to deterministically fill as many Sudoku tiles as it can.
-For this purpose it calculates a fitness table that holds for every tile and every digit wheter a digit can be placed in the tile.
+The first phase of the algorithm tries to deterministically fill as many Sudoku tiles as it can.
+For this purpose, it calculates a fitness table that holds for every tile and every digit whether a digit can be placed in the tile.
 
-#### Fitness table is calculated based on checking if the digit was already placed in the row, column or 3x3 square the tile is located in.
+#### The fitness table is calculated based on checking if the digit was already placed in the row, column, or 3x3 square where the tile is located.
 
-If for the certain tile there is only one available digit in the fitness table, then it has to be placed there.
+If for a certain tile, there is only one available digit in the fitness table, then it has to be placed there.
 
 Phase 1 is repeated until there are no tiles where only one digit fits in.
-When the phase 1 is unable to fill any new tiles than the algoritm moves to the phase 2.
+When phase 1 is unable to fill any new tiles then the algorithm moves to phase 2.
 
 ## Phase 2
 
-In the second phase the algorithm takes the fitness table and goes through the empty tiles.
+In the second phase, the algorithm takes the fitness table and goes through the empty tiles.
 
-For every of those tiles it creates a copy of the current Sudoku state and fills the tile with one of the possible digits from the fitness table.
+For every one of those tiles, it creates a copy of the current Sudoku state and fills the tile with one of the possible digits from the fitness table.
 
-Then, the algorithm is trying to recursively solve the new Sudoku state and moves to the phase 1.
+Then, the algorithm tries to recursively solve the new Sudoku state and moves to phase 1.
 
 The recursion stops when the entire Sudoku is solved.
 
@@ -35,7 +35,7 @@ However, the first phase speeds the algorithm substantially and the program work
 
 ## But why?
 
-For most Sudoku states the number of tiles that can be filled deterministically is corelated with the number of already filled tiles, because the fitness table is based on the existing digits, and more of them means less digits fitting in every tile.
+For most Sudoku states the number of tiles that can be filled deterministically is correlated with the number of already filled tiles, because the fitness table is based on the existing digits, and more of them means fewer digits fitting in every tile.
 
 When there are very few filled tiles, phase 1 is unable to help by much, but when the number of filled tiles is increasing the first phase starts to speed up the process of filling more and more.
 
@@ -43,11 +43,11 @@ Therefore, the recursion has only to go a few steps deep in order for the first 
 
 ## Limitations
 
-Because, the initial recursion is very slow the starting state needs at least about 16 filled tiles to prevent recursion from going too deep into search.
+Because the initial recursion is very slow the starting state needs at least about 16 filled tiles to prevent recursion from going too deep into search.
 
 # Usage
 
-To use the program you need to compile it first using c++ 17 or higher.
+To use the program you need to compile it first using C++ 17 or higher.
 ```
 g++ -std=c++17 -o sudokusolver sudokusolver.cpp
 ```
@@ -56,9 +56,9 @@ Then run it
 ```
 ./sudokusolver
 ```
-Program takes as an input a 9 x 9 grid of digits 0 - 9, where 0 indicates empty tile separated by space or enter. (There is a folder called examples with sample inputs)
+The program takes as an input a 9 x 9 grid of space-separated digits 0 - 9, where 0 indicates an empty tile (There is a folder called examples with sample inputs)
 
-Program outputs solved Sudoku grid separated by ascii characters. (They can be disabled by calling print_board function with mode = false)
+Program outputs solved the Sudoku grid separated by ASCII characters. (They can be disabled by calling the print_board function with mode = false)
 
 ## Example Input
 
